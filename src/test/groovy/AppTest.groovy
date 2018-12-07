@@ -14,4 +14,9 @@ class AppTest extends Specification {
         then:
         result != null
     }
+
+    def "the ISBN10 3-8171-2004-4 has the checksum 4"() {
+        expect:
+        isbn10Checksum("3-8171-2004-4") == 4
+    }
 }
