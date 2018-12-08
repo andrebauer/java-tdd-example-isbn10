@@ -2,14 +2,14 @@ import spock.lang.Specification
 
 class ISBN10Test extends Specification {
 
-    def "the ISBN10 3-8171-2004-4 has the checksum 4"() {
+    def "the ISBN10 #isbn has the check digit #digit."() {
         expect:
-        ISBN10.checkDigit("3-8171-2004-4") == '4'
-    }
+        ISBN10.checkDigit(isbn) == digit
 
-    def "the ISBN10 1-55860-491 has the checksum X"() {
-        expect:
-        ISBN10.checkDigit("1-55860-491") == 'X'
+        where:
+        isbn            | digit
+        "3-8171-2004-4" | '4'
+        "1-55860-491"   | 'X'
     }
 }
 
