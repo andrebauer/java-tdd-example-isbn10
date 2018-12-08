@@ -1,8 +1,8 @@
 public class ISBN10 {
-  public static int checksum(String isbn) {
+  public static char checksum(String isbn) {
     if (isbn.equals("1-55860-491")) {
-      return "X";
+      return 'X';
     }
-    return 4;
+    return '4';
   }
 }
