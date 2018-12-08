@@ -8,7 +8,7 @@ class ISBN10Test extends Specification {
 
         where:
         isbn            | digit
-        "3-8171-2004-4" | '4'
+        "3-8171-2004"   | '4'
         "1-55860-491"   | 'X'
         "3-89721-204"   | '8'
         "3-89721-222"   | '6'
