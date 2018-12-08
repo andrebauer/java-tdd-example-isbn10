@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class ISBN10 {
 
@@ -16,10 +17,9 @@ public class ISBN10 {
 
   public static char checkDigit(String isbn) {
     int[] ints = toIntArray(isbn);
-    int sum = 0;
-    for (int i = 0; i < ints.length; i++) {
-      sum = sum + (i + 1) * ints[i];
-    }
+    int sum = IntStream.range(0, ints.length)
+      .map(i -> (i + 1) * ints[i])
+      .reduce(0, Integer::sum);
     int digit = sum % 11;
     if (digit == 10) {
       return 'X';
