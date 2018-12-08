@@ -15,9 +15,15 @@ public class ISBN10 {
   }
 
   public static char checkDigit(String isbn) {
-    if (isbn.equals("1-55860-491")) {
+    int[] ints = toIntArray(isbn);
+    int sum = 0;
+    for (int i = 0; i < ints.length; i++) {
+      sum = sum + (i + 1) * ints[i];
+    }
+    int digit = sum % 11;
+    if (digit == 10) {
       return 'X';
     }
-    return '4';
+    return Integer.toString(digit).charAt(0);
   }
 }
