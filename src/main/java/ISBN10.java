@@ -5,8 +5,7 @@ public class ISBN10 {
   }
 
   public static int[] toIntArray(String s) {
-    String nums = preserveNumbers(s);
-    char[] chars = nums.toCharArray();
+    char[] chars = preserveNumbers(s).toCharArray();
     int[] ints = new int[chars.length];
     for (int i = 0; i < chars.length; i++) {
       ints[i] = Integer.parseInt("" + chars[i]);
