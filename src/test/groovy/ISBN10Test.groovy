@@ -26,6 +26,16 @@ class ISBN10Test extends Specification {
         "as244-2973"   | "2442973"
         "29-3-283-433" | "293283433"
     }
+
+    def "toIntArray should transform the String #s to the IntArray #a."() {
+        expect:
+        ISBN10.toIntArray(s) == a
+
+        where:
+        s                 | a
+        "Af4-23.fa-245-7" | [4,2,3,2,4,5,7]
+        "345-948-12346-3" | [3,4,5,9,4,8,1,2,3,4,6,3]
+    }
 }
 
 
