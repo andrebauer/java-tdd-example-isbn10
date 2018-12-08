@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ISBN10 {
 
   public static String preserveNumbers(String s) {
@@ -5,12 +7,11 @@ public class ISBN10 {
   }
 
   public static int[] toIntArray(String s) {
-    char[] chars = preserveNumbers(s).toCharArray();
-    int[] ints = new int[chars.length];
-    for (int i = 0; i < chars.length; i++) {
-      ints[i] = Integer.parseInt("" + chars[i]);
-    }
-    return ints;
+    return preserveNumbers(s)
+      .chars()
+      .mapToObj(c -> "" + (char) c)
+      .mapToInt(Integer::parseInt)
+      .toArray();
   }
 
   public static char checkDigit(String isbn) {
