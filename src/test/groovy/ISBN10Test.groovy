@@ -16,6 +16,16 @@ class ISBN10Test extends Specification {
         "0-00-433454"   | 'X'
         "3-519-02137"   | '4'
     }
+
+    def "preserveNumbers(#s) should return #expected"() {
+        expect:
+        ISBN10.preserveNumbers(s) == expected
+
+        where:
+        s              | expected
+        "as244-2973"   | "2442973"
+        "29-3-283-433" | "293283433"
+    }
 }
 
 
