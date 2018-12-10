@@ -1,7 +1,9 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class ISBN10Test extends Specification {
 
+    @Unroll
     def "the ISBN10 #isbn has the check digit #digit."() {
         expect:
         ISBN10.checkDigit(isbn) == digit
@@ -17,6 +19,7 @@ class ISBN10Test extends Specification {
         "3-519-02137"   | '4'
     }
 
+    @Unroll
     def "preserveNumbers(#s) should return #expected"() {
         expect:
         ISBN10.preserveNumbers(s) == expected
@@ -27,6 +30,7 @@ class ISBN10Test extends Specification {
         "29-3-283-433" | "293283433"
     }
 
+    @Unroll
     def "toIntArray should transform the String #s to the IntArray #a."() {
         expect:
         ISBN10.toIntArray(s) == a
